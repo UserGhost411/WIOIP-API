@@ -5,7 +5,7 @@ from flask import redirect,request as req
 def getRootData():
   return redirect("https://github.com/UserGhost411/WIOIP/")
 def getWeather(h="all",region=""):
-    ip_address = "" #req.remote_addr
+    ip_address = req.remote_addr
     page = requests.get( urlIP+ip_address, headers=headers)
     if(region==""):
         if page.status_code == 200:
