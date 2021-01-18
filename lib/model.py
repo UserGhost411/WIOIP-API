@@ -14,6 +14,7 @@ def getWeather(h="all",region=""):
             location = va['city']#Kenjeran, Surabaya City, East Java
             cord = ""
             if(" " in location): cord = str(va['lat'])+","+str(va['lon'])
+            print(cord,location)
             dat = {"status":1,"city": va['city'],"region": va['regionName'],"country": va['country']}
             if(h=="c" or h=="all"):dat['current'] = json.loads(requests.get( urlAPI+"current?location="+cord+"&format=json&city="+location, headers=headers).text)
             if(h=="f" or h=="all"):dat['forecast']  = json.loads(requests.get( urlAPI+"forecast?location="+cord+"&format=json&city="+location, headers=headers).text)
