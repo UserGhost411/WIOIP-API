@@ -2,6 +2,9 @@ from lib.static import urlAPI,errorMessage,headers,urlIP
 import requests
 import json
 from flask import redirect,request as req
+def aa(x):
+    print(x)
+    return x
 def getRootData():
   return redirect("https://github.com/UserGhost411/WIOIP/")
 def getWeather(h="all",region=""):
@@ -16,8 +19,8 @@ def getWeather(h="all",region=""):
             if(" " in location): cord = str(va['lat'])+","+str(va['lon'])
             print(cord,location)
             dat = {"status":1,"city": va['city'],"region": va['regionName'],"country": va['country']}
-            if(h=="c" or h=="all"):dat['current'] = json.loads(requests.get( urlAPI+"current?location="+cord+"&format=json&city="+location, headers=headers).text)
-            if(h=="f" or h=="all"):dat['forecast']  = json.loads(requests.get( urlAPI+"forecast?location="+cord+"&format=json&city="+location, headers=headers).text)
+            if(h=="c" or h=="all"):dat['current'] = json.loads(requests.get(aa(urlAPI+"current?location="+cord+"&format=json&city="+location), headers=headers).text)
+            if(h=="f" or h=="all"):dat['forecast']  = json.loads(requests.get(aa(urlAPI+"forecast?location="+cord+"&format=json&city="+location), headers=headers).text)
             return dat
         else:
             return errorMessage

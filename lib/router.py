@@ -6,6 +6,7 @@ class Router:
         def root():
             return model.getRootData()
         @app.route('/weather')
+        @app.route('/weather/<type>')
         @app.route('/weather/<type>/<region>')
         def weather_info(type="all",region=""):
             return model.getWeather(type,region)
