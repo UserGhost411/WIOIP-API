@@ -11,7 +11,7 @@ def getWeather(h="all",region=""):
         if page.status_code == 200:
             va = json.loads(page.text)
             print(va)
-            location = va['city']#Kenjeran, Surabaya City, East Java
+            location = va['city'].lower()#Kenjeran, Surabaya City, East Java
             cord = ""
             if(" " in location): cord = str(va['lat'])+","+str(va['lon'])
             print(cord,location)
