@@ -33,6 +33,7 @@ def getWeather(h="all",region=""):
         else:
             return errorMessage
 def region(nama):
+    loc = json.load(open("loc.json",))
     hasil = LinearSearch(loc,nama.lower())
     return {"result":hasil,"count":len(hasil)}
 def LinearSearch(data, element):
